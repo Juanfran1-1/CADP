@@ -1,0 +1,82 @@
+ejercicio 4 
+program Ejercicio4;
+var x , y:real;
+begin
+  read (x);
+  read (y);
+  while (y) <> (x*2) do
+    read (y);
+  writeLn('el doble de x es  ' , y:0:0)
+  
+end.    
+
+.Ejercicio 5
+ program Ejercicio5;
+var
+    x, y, intentos: real;
+begin
+    read(x);
+    y:=0 ;
+    intentos:= 0;
+    while (y<> (x*2)) and (intentos<10) do
+        begin
+            read(y);
+            intentos:= intentos + 1;
+            if (y<> (x*2)) then
+                writeLn('intento no valido     ');
+        end;   
+    if (intentos=10) then     
+        writeLn('se realizaron mas de 10 intentos')
+    else    
+        writeLn('correcto,el doble de X es', y:0:0 );    
+end.
+.Ejercicio 6	
+program ejercicio6;
+var 
+    prom:real;
+    qal,qalp,ald,legajo:integer;
+begin
+    qal:= 0 ;
+    qalp:= 0;
+    ald:= 0 ;
+    repeat
+        read(legajo);
+        if (legajo <> -1) then
+            begin   
+                read(prom);
+                qal:=qal +1;
+            end;
+            if (prom= 6) then
+            begin
+                qalp:= qalp+1;
+            end;
+            if (prom>8) and (legajo <2500) then 
+                ald:= ald+1 ;
+    until (legajo= -1);           
+        writeLn(ald*100/qal);
+        writeLn(qalp);
+        writeLn(qal);
+        writeln(ald);
+end.    
+Ejercicio 7
+program ejercicio7;
+var 
+    codigo,p1,p2,n1: real ;
+begin
+    n1:= 0;
+    WriteLn ('ingrese codigo' );
+    read(codigo);
+    while (codigo<>32767) do  
+        begin   
+            writeln('ingrese precio del producto');
+            read(p1);
+            writeln('ingrese nuevo precio');
+            read(p2);
+            
+            n1:=((110/100) * p1);
+            if (p2<=n1) then
+                writeln ('el nuevo precio no supera en un 10% al precio inicial')
+            else 
+                writeln ('el precio nuevo supera en un 10% al precio inicial');    
+        end;    
+end.            
