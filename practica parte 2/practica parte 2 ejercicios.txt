@@ -1,0 +1,240 @@
+program ejercicio1p2;
+var 
+    n5,i,suma,num:integer;
+begin     
+    suma:= 0;
+    n5:=0;
+    for i:= 1 to 10 do begin;
+            write('escriba un numero: ');
+            readln(num);
+            suma := (suma + num);
+            if (5<num) then
+                n5:= n5+1
+    end;
+    writeln('la suma de todos los numeros ingresados es igual a: ' , suma);
+    writeln('la cantidad de numeros mayores a 5 es igual a  ', n5);         
+end.           
+
+*program ejercicio2;
+var     
+    pos,maximo,num,i:integer;
+begin
+    maximo:= 0;
+    pos:=0;
+    for i:= 1 to 10 do begin;
+        write('escriba un numero a continuacion :  ');
+        read(num);
+        if (num>maximo) then
+            begin
+                maximo:=(num);
+                pos:=(i);
+            end;    
+    end; 
+    write('el numero mas alto ingresado fue :  ' , maximo, ',  ingresado en la posicion: ',pos );       
+end.  
+* program ejercicio3;
+type    
+    promedio= 1..10;
+var 
+    nombre:string;
+    alu8,alu:integer;
+    nota:promedio;
+begin
+    alu:= 0;
+    alu8:= 0;
+    repeat
+        write('escriba el nombre de alumno: ');
+        readln(nombre);
+        write('ingrese nota: ');
+        readln(nota);
+        if (nota>8) then begin;
+            alu8:= alu8+1;
+        end;
+        if (nota=7) then begin;
+            alu:= alu+1;
+        end;           
+    until (nombre = ('Zidane Zinedine'));   
+    writeln('los alumnos con 8 o mas fueron: ', alu8);
+    writeln('los alumnos con nota 7 fueron: ' , alu);
+end.      
+* program Ejercicio4;
+var
+    num, numMin, numMin2: integer;
+    i: integer;
+begin
+    numMin:= 9999;
+    numMin2:= 9999;
+    for i:= 1 to 1000 do 
+    begin
+        write('Ingrese un numero: ');
+        read(num);
+        if (numMin >= num) then
+        begin
+            numMin2:= numMin; 
+            numMin:= num; 
+        end;
+    end;
+    writeln('El primer numero minimo es: ',numMin);
+    write('El segundo numero minimo es: ',numMin2);
+end.  
+{4a: cambiar el  for por un until y repeat , poner como condicion que el programa termine cuando numero sea=0} 
+{4b:program eje4;
+var 
+    numin1,numin,num,:integer;
+begin
+    numin1:= 9999;
+    numin:= 9999;
+    repeat 
+        write('ingrese un numero a continuacion: ');
+        read(num);;
+        if (num<numin) then begin;
+            numin:= (num);
+            end;
+        if (num>=numin) and (numin1>numin) then begin;
+            numin1:= (num);
+            end;
+    until (num=0);
+        writeLn('el numero mas bajo ingresado ha sido: ', numin);
+        writeLn('el seguno numero mas bajo ingresado ha sido: ', numin1);
+end. }
+
+*ejercicio5
+    program eje5;
+var 
+    num,numMax,numMin,suma:integer;
+begin
+    numMax:=-1;
+    numMin:=9999;
+    suma:=0;
+    repeat
+      write('ingrese numero: ');
+      read(num);
+      suma:=suma+num;
+      if (num<=numMin) then begin;
+        numMin:=(num);
+        end;
+      if (num>numMax) then begin;
+        numMax:=(num);
+        end;
+    until (num=100);
+        writeLn('numero maximo ingresado: ',numMax);
+        writeLn('numero minimo ingresado: ',numMin);
+        writeLn('el total de la suma de todos los numeros ingrewsasdos ha sido: ',suma);
+end.      
+*   ejercicio6
+program eje6;
+type
+    codigo=1..200;
+var 
+    cm,cm1,numero:codigo;
+    preciomin,precio:real;
+    i,par:integer;
+begin
+    preciomin:=9999;
+    cm:=1;
+    cm1:=1;
+    par:=0;
+    for i:= 1 to 5 do
+        begin   
+            write('ingrese el codigo del producto: ');
+            read(numero);
+            write('ingrese el percio del producto;  ');
+            read(precio);
+            if (precio<=preciomin) then begin;
+                cm1:=(cm);
+                cm:=(numero);
+                end;
+            if (precio > 16) and (numero mod 2=0) then 
+                par:=par + 1;
+        end;                    
+    writeln('el codigo del producto mas barato es: ',cm);
+    writeln('el codigo del producto segundo mas barato es: ',cm1);
+    writeln('la cantidad de productos que su codigo es par es de: ',par);
+end.    
+       
+* ejercicio 7
+ program eje7;
+var
+    p,piloto1,piloto2,piloto3,piloto4:string;
+    tiempo1,tiempo2,tiempo3,tiempo4:integer;
+    t,i:integer;
+begin
+    piloto1:= '';
+    piloto2:= '';
+    piloto3:= '';
+    piloto4:= '';
+    tiempo1:=9999;
+    tiempo2:=9999;
+    tiempo3:=1;
+    tiempo4:=1;
+    for i:= 1 to 7 do 
+    begin
+        write('ingrese nombre del piloto: ');
+        readLn(p);
+        write('ingrese tiempo del piloto: ');
+        readLn(t);
+        writeLn('----------');
+        if (t < tiempo1) then begin;
+            tiempo2:=tiempo1;
+            tiempo1:=t;
+            piloto2:=piloto1;
+            piloto1:=p;
+            end
+        else if (t < tiempo2) then begin;
+            tiempo2:=t;
+            piloto2:=p;
+            end;
+        if (t > tiempo3) then begin;
+            tiempo4:=tiempo3;
+            piloto4:=piloto3;
+            tiempo3:=t;
+            piloto3:=p;
+            end
+        else if (t > tiempo4) then begin;
+            tiempo4:=t;
+            piloto4:=p;
+            end;
+    end;        
+    writeLn('el piloto que termino 1º fue: ', piloto1 ,(' ') , ('su tiempo ha sido: ' ), tiempo1 );  
+    writeLn('el piloto que termino 2º fue: ', piloto2 ,(' ') , ('su tiempo ha sido: ' ), tiempo2 );
+    writeLn('el piloto que termino 3º fue: ', piloto3 ,(' ') , ('su tiempo ha sido: ' ), tiempo3 );
+    writeLn('el piloto que termino 4º fue: ', piloto4 ,(' ') , ('su tiempo ha sido: ' ), tiempo4 );    
+end. 
+* Ejercicio 8 
+program eje8;
+type
+    rango=0..1000;
+var 
+    max,ventasmes,mayordia,montomes,ventasdia,montodia,i:integer;
+    monto:rango;
+begin
+    ventasmes:=0;
+    ventasdia:=0;
+    montomes:=0;
+    montodia:=0;
+    max:=0;
+    mayordia:=0;
+    for i:= 1 to 31 do;
+        begin
+            repeat
+                begin
+                    write('escriba el monto del producto: ');
+                    read(monto);
+                    ventasdia:=ventasdia + 1;
+                    montodia:=montodia + monto;
+                end;
+            until (monto = 0);
+            if(ventasdia < max) then 
+                begin
+                    max:=ventasdia;
+                    mayordia:=i;
+                end;    
+            ventasmes:=(ventasmes + ventasdia);
+            montomes:=(montomes + montodia);
+            ventasdia:=0;
+            montodia:=0;
+        end;        
+    writeln('durante el mes se registraron: ', ventasmes, '  en total');
+    writeLn('se recaudo un total de: ' ,montomes, ' en total');
+    writeLn('el dia que mas ventas se realizaron fue el dia:  ',mayordia);
+end.           
